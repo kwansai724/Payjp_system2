@@ -1,6 +1,10 @@
 <header>
   <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "Pay.jp", root_path, class: 'navbar-brand' %>
+    <% if user_signed_in? %>
+      <%= link_to "Pay.jp", user_path(current_user), class: 'navbar-brand' %>
+    <% else %>  
+      <%= link_to "Pay.jp", root_path, class: 'navbar-brand' %>
+    <% end %>  
     <div id="Navber">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
