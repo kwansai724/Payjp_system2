@@ -55,15 +55,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(resource)
   end
 
+  #アカウント編集時にパスワード入力を省く
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
   # アカウント情報編集後の画面遷移
   def after_update_path_for(resource)
     user_path(resource)
   end
-
-  # #更新（編集の反映）時にパスワード入力を省く
-  # def update_resource(resource, params)
-  #   resource.update_without_password(params)
-  # end
+  
 
 
   # The path used after sign up for inactive accounts.
