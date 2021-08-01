@@ -24,6 +24,8 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
 
+gem 'payjp'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
