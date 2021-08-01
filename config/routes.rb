@@ -7,5 +7,18 @@ Rails.application.routes.draw do
 
   root 'homes#index'
 
-  resources :users
+  namespace :users do
+    
+    # ユーザー課金
+    scope module: :payjp do
+      resources :cards, except: [:new]
+      namespace :plans do
+        get 'choice', action: :choice
+        get 'new_card', action: :new_card
+        post 'confirm', action: :confirm
+        post 'upgrade', action: :upgrade
+        get 'complete', action: :complete
+      end
+    end
+  end
 end
