@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # ユーザー新規登録後の画面遷移
   def after_sign_up_path_for(resource)
-    user_path(resource)
+    users_plans_choice_path(resource)
   end
 
   #アカウント編集時にパスワード入力を省く
@@ -62,10 +62,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント情報編集後の画面遷移
   def after_update_path_for(resource)
-    user_path(resource)
+    users_cards_path(resource)
   end
-  
-
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

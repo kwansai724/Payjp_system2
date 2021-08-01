@@ -1,0 +1,9 @@
+<%= form_with url: users_plans_upgrade_path, local: true do |f| %>
+  <div class="container">
+    <% cards.each do |card| %>
+      <%= f.radio_button :card_id, card.metadata.card_id %>
+      <%= f.label :card_id, "#{card.last4} #{card.brand}" %>
+    <% end %>
+  </div>
+  <%= f.submit "選択されたカードで決済をする", confirm: "決済を行います。よろしいですか？" %>
+<% end %>

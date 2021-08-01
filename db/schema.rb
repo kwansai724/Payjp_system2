@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_022251) do
+ActiveRecord::Schema.define(version: 2021_08_01_121116) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "card_id", null: false
+    t.string "number", null: false
+    t.string "brand", null: false
+    t.boolean "default", default: false, null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "price", null: false
+    t.string "plan_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "subscription_id", null: false
+    t.integer "user_id", null: false
+    t.integer "plan_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -21,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_08_01_022251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
+    t.string "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

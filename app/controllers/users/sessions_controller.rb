@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # ユーザーログイン後の画面遷移
   def after_sign_in_path_for(resource)
-    user_path(resource)
+    users_cards_path(resource)
   end
 
   # ユーザーログアウト後の画面遷移
