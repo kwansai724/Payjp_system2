@@ -62,7 +62,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント情報編集後の画面遷移
   def after_update_path_for(resource)
-    users_cards_path(resource)
+    if current_user.customer_id
+      users_cards_path
+    else
+      users_plans_choice_path(resource)
+    end
   end
 
   # The path used after sign up for inactive accounts.
