@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">膣美人オンラインサロン</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">3,000円<small class="text-muted">/ 月</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>サロン概要</li>
+          <li>引き落とし日：毎月3日</li>
+        </ul>
+        <%= form_with url: users_cards_path, local: true do |f| %>
+          <script
+            type="text/javascript"
+            src="https://checkout.pay.jp/"
+            class="payjp-button"
+            data-payjp=""
+            data-key="pk_test_b6cbdc1192a8098cb1ddc58f"
+            data-submit-text="上記のカードを登録する"
+            data-text="カードを追加"
+          ></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container cards-index">
+  <% @cards.each do |card| %>
+    <% if @customer.default_card == card.id %>
+      <div class="card text-white bg-primary" style="width: 18rem;">
+        <div class="card-body">
+          <h5><%= card.brand %></h5>
+          <h5 class="card-title">**** **** **** <%= card.last4 %></h5>
+          <p class="card-text">
+            支払いカードに設定済み
+          </p>          
+        </div>
+      </div>
+    <% else %>
+      <div class="card <%= "text-white bg-primary" if @customer.default_card == card.id %>" style="width: 18rem;">
+        <div class="card-body">
+          <h5><%= card.brand %></h5>
+          <h5 class="card-title">**** **** **** <%= card.last4 %></h5>
+          <%= link_to "支払いカードに設定", users_card_path(card.metadata.card_id), method: :patch, data: {confirm: "カードを支払いカードに設定します"}, class:"btn btn-primary mt-2" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
