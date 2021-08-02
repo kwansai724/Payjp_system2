@@ -1,3 +1,24 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cards-index {
+  display: flex;
+}
+
+.card {
+  margin-right: 8px;
+}
+
+//スマホ用
+@media screen and (max-width:480px) {
+
+  .cards-index {
+    display: inline-block;
+  }
+
+  .card {
+    margin-bottom: 8px;
+  }
+  
+}

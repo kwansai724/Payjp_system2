@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+load(Rails.root.join("db", "seed", "#{Rails.env.downcase}.rb"))
+
+# 開発環境
+# ⇒rails db:seed
+
+# 本番環境
+# ⇒rails db:seed RAILS_ENV=production
