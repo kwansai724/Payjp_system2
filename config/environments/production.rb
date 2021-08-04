@@ -78,7 +78,7 @@ Rails.application.configure do
     user_name: ENV['YOUR_GMAIL_ADDRESS'],
     password: ENV['GOOGLE_APP_PASSWORD'],
     authentication: :login,
-    openssl_verify_mode: 'none',
+    # openssl_verify_mode: 'none',
     enable_starttls_auto: true
   }
 
