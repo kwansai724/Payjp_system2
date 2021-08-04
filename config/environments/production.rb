@@ -90,7 +90,7 @@ Rails.application.configure do
   host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
   mail = ENV['YOUR_GMAIL_ADDRESS']
-  pass = ENV['GOOGLE_APP_PASSWORD']
+  pass = 'ihukiffafpeqwmui'
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
     :port           => '587',
