@@ -65,11 +65,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'herokuapp.com'}
-
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
+  host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
   config.action_mailer.smtp_settings = {
     address:"smtp.gmail.com",
     domain: 'gmail.com',
