@@ -1,1 +1,11 @@
 <%= render 'layouts/flash_messages' %>
+<div class="container col-10 col-md-10 col-lg-6">
+  <div class="user-signed">
+    <div class="signed-up">
+      <%= link_to "初めての方はこちら", new_user_registration_path, class: 'signed-up-btn' %>
+    </div>
+    <div class="signed-in">
+      <%= link_to "ご登録済みの方はこちら", new_user_session_path, class: 'signed-in-btn' %>
+    </div>
+  </div>
+</div>
