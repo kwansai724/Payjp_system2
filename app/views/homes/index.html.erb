@@ -1,1 +1,27 @@
 <%= render 'layouts/flash_messages' %>
+<div class="container col-10 col-md-10 col-lg-10">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">膣美人オンラインサロン</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">3,000円<small class="text-muted">/ 月</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>サロン概要</li>
+          <li>引き落とし日：毎月20日</li>
+        </ul>
+        <div class="user-signed">
+          <div class="signed-up">
+            <%= link_to "初めての方はこちら", new_user_registration_path, class: 'signed-up-btn' %>
+          </div>
+          <div class="signed-in">
+            <%= link_to "ご登録済みの方はこちら", new_user_session_path, class: 'signed-in-btn' %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

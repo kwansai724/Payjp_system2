@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
+  　<% if user_signed_in? %>
+      <%= render 'layouts/header' unless devise_controller? %>
+    <% end %>  
+    <div class="container <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
       <%= yield %>
     </div>
     <%= debug(params) if Rails.env.development? %>

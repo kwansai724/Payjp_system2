@@ -22,4 +22,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  # その他
+  get  "use"  => "use#index"
+
 end

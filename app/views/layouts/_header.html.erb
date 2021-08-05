@@ -1,15 +1,8 @@
 <header>
-  <nav class="navbar navbar-expand navbar-light" style="background-color:#ffa7d7;">
+  <nav class="navbar navbar-expand navbar-light">
     <%
 =begin%>
- <% if user_signed_in? %>
-      <%= link_to "Pay.jp", user_path(current_user), class: 'navbar-brand' %>
-    <% else %>  
-      <%= link_to "Pay.jp", root_path, class: 'navbar-brand' %>
-    <% end %>   
-<%
-=end%>
-    <ul class="navbar-nav mr-auto">
+ <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <% if current_user.customer_id %>
           <%= link_to "膣美人オンラインサロン", users_cards_path, class: 'navbar-brand' %>
@@ -19,15 +12,31 @@
       <% else %>  
         <%= link_to "膣美人オンラインサロン", root_path, class: 'navbar-brand' %>
       <% end %>  
-    </ul>  
+    </ul>   
+<%
+=end%>
     <div id="Navber">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
+          <%= link_to edit_user_registration_path, class:'user-icon' do %>
+            <%= image_tag "user_edit.png" %><br>
+          <% end %>
+            <%
+=begin%>
+ <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %> 
+<%
+=end%>
           </li>
           <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <%= link_to destroy_user_session_path, method: :delete, class:'logout-icon' do %>
+            <%= image_tag "logout.png" %><br>
+          <% end %>
+            <%
+=begin%>
+ <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %> 
+<%
+=end%>
           </li>
       <% else %>
           <li class="nav-item active">
