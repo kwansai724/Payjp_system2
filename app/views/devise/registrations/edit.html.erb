@@ -56,7 +56,11 @@
 =end%>
 
 
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<%
+=begin%>
+ <h2><%= t('.title', resource: resource.model_name.human) %></h2> 
+<%
+=end%>
 
 <div class="register-box">
   <div class="card card-outline card-primary">
@@ -120,7 +124,11 @@
           </div>
           <!-- /.col -->
         </div>
-        <%= link_to "戻る", :back %>
+        <% if current_user.customer_id %>
+          <%= link_to "戻る", users_cards_path %> 
+        <% else %>
+          <%= link_to "戻る", users_plans_choice_path(current_user) %> 
+        <% end %>
       <% end %>
     </div>
     
