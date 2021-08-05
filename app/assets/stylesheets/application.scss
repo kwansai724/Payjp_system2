@@ -16,6 +16,13 @@
 
  @import "bootstrap";
 
+ body {
+   background-image: url("5066732_m.jpg");
+   background-size: cover;
+   background-position: center center;
+   background-repeat: no-repeat;
+ }
+
  // max-width
 
 .mw-md {
@@ -47,4 +54,17 @@
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+//スマホ用
+@media screen and (max-width:480px) {
+
+  body {
+    background-image: url("5066732_m.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  } 
+
 }

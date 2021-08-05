@@ -4,7 +4,7 @@
 
 
 .user-signed {
-  display: flex;
+  display: inline-flex;
 }
 
 // 新規登録ボタン
@@ -70,11 +70,13 @@
   .signed-up a {
     margin-top: 10px;
     margin-right: 0;
+    font-size: 20px;
   }
 
   .signed-in a {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 0;
+    font-size: 19px;
   }
 
 }
