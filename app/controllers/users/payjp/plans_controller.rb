@@ -14,7 +14,7 @@ class Users::Payjp::PlansController < Users::Payjp::Base
   end
 
   def upgrade
-    plan = Plan.first
+    plan = Plan.find(params[:plan_id])
     # 既存のカードでの決済のパターン
     if params[:commit] == "選択されたカードで決済をする"
       card = Card.find(params[:card_id])
