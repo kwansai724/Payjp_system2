@@ -62,6 +62,7 @@
 <%
 =end%>
 
+<%= bootstrap_devise_error_messages! %>
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
@@ -88,9 +89,41 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          
+          <%= f.label :gender, class: "form-label" %>
+          <%= f.select :gender, ['女性', '男性', 'その他'], { include_blank: true }, class:"form-control", required: true %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.label :birthday, class: "form-label" %>
+          <%= f.date_select :birthday, {use_month_numbers: true, include_blank: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, {class: "form-control", required: true} %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"メールアドレス", required: true %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+            <%= f.text_field :address, class: "form-control", placeholder:"住所", required: true %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"変更後パスワード(変更したい場合)" %>
-          
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
