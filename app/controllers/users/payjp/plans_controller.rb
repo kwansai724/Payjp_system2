@@ -8,13 +8,14 @@ class Users::Payjp::PlansController < Users::Payjp::Base
       customer = Payjp::Customer.retrieve(current_user.customer_id)
       @cards = customer.cards.all
     end
+    @plan = params[:plan_id]
   end
 
   def confirm
   end
 
   def upgrade
-    plan = Plan.first
+    plan = Plan.find(params[:plan_id])
     # 既存のカードでの決済のパターン
     if params[:commit] == "選択されたカードで決済をする"
       card = Card.find(params[:card_id])
@@ -30,6 +31,9 @@ class Users::Payjp::PlansController < Users::Payjp::Base
                   description: 'test',
                   metadata: {
                     name: current_user.name,
+                    gender: current_user.gender,
+                    birthday: current_user.birthday,
+                    address: current_user.address,
                     email: current_user.email
                   }
                 )

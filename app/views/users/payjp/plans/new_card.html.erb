@@ -1,32 +1,65 @@
 <%= render 'layouts/flash_messages' %>
 
 <div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">膣美人オンラインサロン</h4>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title pricing-card-title">3,000円<small class="text-muted">/ 月</small></h2>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>サロン概要</li>
-          <li>引き落とし日：毎月3日</li>
-        </ul>
-        <%= form_with url: users_plans_upgrade_path do |f| %>
-          <script
-            type="text/javascript"
-            src="https://checkout.pay.jp/"
-            class="payjp-button"
-            data-payjp=""
-            data-key="pk_test_964dab5b255daceb0c65faae"
-            data-submit-text="上記で決済を行う"
-            data-text="カードを新規に登録する"
-          ></script>
-        <% end %>
-        <% if current_user.customer_id && @cards.any? %>
-          <%= render "select_card", cards: @cards %>
-        <% end %>
+  <% if @plan == "1" %>
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">セラピスト養成コース</h4>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title pricing-card-title">3,000円<small class="text-muted">/ 月</small></h2>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>サロン概要</li>
+            <li>引き落とし日：毎月3日</li>
+          </ul>
+          <%= form_with url: users_plans_upgrade_path do |f| %>
+            <%= f.hidden_field :plan_id, :value => 1 %>
+            <script
+              type="text/javascript"
+              src="https://checkout.pay.jp/"
+              class="payjp-button"
+              data-payjp=""
+              data-key="pk_test_964dab5b255daceb0c65faae"
+              data-submit-text="上記で決済を行う"
+              data-text="カードを新規に登録する"
+            ></script>
+          <% end %>
+          <% if current_user.customer_id && @cards.any? %>
+            <%= render "select_card", cards: @cards %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% elsif @plan == "2" %>
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">セルフケアコース</h4>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title pricing-card-title">1,000円<small class="text-muted">/ 月</small></h2>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>サロン概要</li>
+            <li>引き落とし日：毎月3日</li>
+          </ul>
+          <%= form_with url: users_plans_upgrade_path do |f| %>
+            <%= f.hidden_field :plan_id, :value => 2 %>
+            <script
+              type="text/javascript"
+              src="https://checkout.pay.jp/"
+              class="payjp-button"
+              data-payjp=""
+              data-key="pk_test_964dab5b255daceb0c65faae"
+              data-submit-text="上記で決済を行う"
+              data-text="カードを新規に登録する"
+            ></script>
+          <% end %>
+          <% if current_user.customer_id && @cards.any? %>
+            <%= render "select_card", cards: @cards %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
