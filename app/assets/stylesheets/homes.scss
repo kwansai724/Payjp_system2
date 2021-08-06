@@ -63,7 +63,11 @@
   color: #f090f3;
 }
 
-
+.form-label {
+  font-size: small;
+  margin-top: 5px;
+  margin-right: 5px;
+}
 
 //スマホ用
 @media screen and (max-width:480px) {
@@ -83,6 +87,14 @@
     margin-top: 15px;
     margin-left: 0;
     font-size: 19px;
+  }
+
+  .register-box {
+    width: 110%;
+  }  
+
+  .card-header b {
+    font-size: 28px;
   }
 
 }

@@ -1,9 +1,15 @@
 5.times do |n|
   name = "サンプルユーザー#{n+1}"
+  gender = "女性"
+  birthday = "1989-07-2#{n+1}"
+  address = "大阪府大阪市北区梅田#{n+1}−#{n+1}−#{n+1}"
   email = "sample#{n+1}@email.com"
   password = "password"
   User.create!(
     name: name,
+    gender: gender,
+    birthday: birthday,
+    address: address,
     email: email,
     password: password,
     password_confirmation: password,
