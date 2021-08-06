@@ -30,6 +30,9 @@ class Users::Payjp::PlansController < Users::Payjp::Base
                   description: 'test',
                   metadata: {
                     name: current_user.name,
+                    gender: current_user.gender,
+                    birthday: current_user.birthday,
+                    address: current_user.address,
                     email: current_user.email
                   }
                 )
