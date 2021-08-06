@@ -8,6 +8,7 @@ class Users::Payjp::PlansController < Users::Payjp::Base
       customer = Payjp::Customer.retrieve(current_user.customer_id)
       @cards = customer.cards.all
     end
+    @plan = params[:plan_id]
   end
 
   def confirm
