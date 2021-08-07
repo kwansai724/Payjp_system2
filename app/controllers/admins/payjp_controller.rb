@@ -4,6 +4,7 @@ class Admins::PayjpController < Admins::Base
   end
 
   def user_index
+    @users = User.all
   end
 
   def user_show

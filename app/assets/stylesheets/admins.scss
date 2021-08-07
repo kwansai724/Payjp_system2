@@ -1,3 +1,5 @@
+
+// 管理者ログイン画面
 * {
   margin: 0px;
   padding: 0px;
@@ -120,10 +122,23 @@ h1 {
   background: #e7e9ec;
 }
 
-
 .admin-login a {
   color: #111;
 }
+
+.admin-index {
+  padding-top: 20px;
+}
+
+.admin-index a {
+  font-size: large;
+  padding-top: 10px;
+}
+
+.link-index {
+  padding-top: 10px;
+}
+
 
 //スマホ用
 @media screen and (max-width:480px) {
@@ -131,5 +146,12 @@ h1 {
   .box-inner h2 {
     font-size: 27px;
   }
+
+  // 管理者トップページ
+
+  .admin-index h1 {
+    font-size: 28px;
+  }
+
 
 }

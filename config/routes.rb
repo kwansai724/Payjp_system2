@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       namespace :plans do
         get 'choice', action: :choice
         get 'new_card', action: :new_card
+        post 'upgrade', action: :upgrade
+        post 'confirm', action: :confirm
       end
     end
   end
