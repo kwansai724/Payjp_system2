@@ -21,10 +21,16 @@ Rails.application.routes.draw do
       namespace :plans do
         get 'choice', action: :choice
         get 'new_card', action: :new_card
-        post 'confirm', action: :confirm
-        post 'upgrade', action: :upgrade
-        get 'complete', action: :complete
       end
+    end
+  end
+
+  # 管理者ページ
+  namespace :admins do
+    scope module: :payjp do
+      get 'index', action: :index
+      get 'user_index', action: :user_index
+      get 'user_show', action: :user_show
     end
   end
 
