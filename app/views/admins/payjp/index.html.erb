@@ -1,0 +1,9 @@
+<%= render 'layouts/flash_messages' %>
+
+<div class="container col-10 col-md-8 col-lg-4 admin-index">
+  <h1>管理者トップページ</h1>
+  <div class="link-index">
+    <%= link_to '顧客一覧へ', admins_user_index_path, class: "btn btn-primary" %>
+    <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'btn btn-secondary' %>
+  </div>  
+</div>

@@ -1,0 +1,52 @@
+<%= render 'layouts/flash_messages' %>
+
+<div class="container mt-3 col-md-10 col-lg-8">
+  <h1>顧客一覧</h1>
+  <% @users.each_with_index do |user, n| %>
+    <div class="row">
+      <div class="d-flex align-items-center border-top users-index col-4 col-lg-4">
+        名前:
+      </div>
+      <div class="d-flex align-items-center border-top users-index col-6 col-lg-6">
+        <%= user.name %>
+      </div>
+      <div class="d-flex align-items-center border-top users-index col-2">
+        <%= link_to "詳細", admins_user_show_path(user.customer_id, user_id: user.id), class: "btn btn-dark mt-3" %>
+      </div>
+      <%
+=begin%>
+ <div class="d-flex align-items-center border-top users-index col-2">
+        <%= link_to "削除", "#", method: :delete,
+            data: { confirm: "削除してよろしいですか？" },
+            class: "btn btn-danger btn--resize mt-3" %>
+      </div> 
+<%
+=end%>
+    </div>
+    <div class="row">
+      <div class="users-index mb-3 col-4">
+        Eメール:
+      </div>
+      <div class="users-index mb-3 col-8">
+        <%= user.email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="users-index mb-2 col-4">
+        プラン:
+      </div>
+      <div class="users-index mb-2 col-8">
+        <% if user.customer_id.present? %>
+          <p><%= Plan.find(Subscription.find_by(user_id: n+1).plan_id).name %></p>
+        <% else %>
+          <p>未登録</p>
+        <% end %>  
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="d-flex align-items-center border-top col-12">
+      <%= link_to "戻る", admins_index_path, class: "btn btn-secondary mt-3" %>
+    </div>  
+  </div>
+</div>
