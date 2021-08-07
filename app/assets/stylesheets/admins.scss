@@ -122,10 +122,12 @@ h1 {
   background: #e7e9ec;
 }
 
+// 管理者ログインリンク
 .admin-login a {
   color: #111;
 }
 
+// 管理者トップページ
 .admin-index {
   padding-top: 20px;
 }
@@ -139,6 +141,11 @@ h1 {
   padding-top: 10px;
 }
 
+// 顧客一覧、詳細画面
+.users-index {
+  font-weight: 600;
+}
+
 
 //スマホ用
 @media screen and (max-width:480px) {
@@ -148,9 +155,13 @@ h1 {
   }
 
   // 管理者トップページ
-
   .admin-index h1 {
     font-size: 28px;
+  }
+
+  // 顧客一覧　ボタン
+  .users-index .btn {
+    font-size: small;
   }
 
 

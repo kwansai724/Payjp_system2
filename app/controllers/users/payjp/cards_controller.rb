@@ -2,7 +2,7 @@ class Users::Payjp::CardsController < Users::Payjp::Base
   def index
     @customer = Payjp::Customer.retrieve(current_user.customer_id)
     @cards = @customer.cards.all
-    @plan = Subscription.find(current_user.id).plan_id
+    @subscription = Subscription.find_by(user_id: current_user.id)
   end
 
   def create
