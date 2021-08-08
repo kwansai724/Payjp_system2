@@ -2,7 +2,7 @@
 
 <div class="container mt-3 col-md-10 col-lg-8">
   <h1>顧客一覧</h1>
-  <% @users.each_with_index do |user, n| %>
+  <% @users.each_with_index do |user| %>
     <div class="row">
       <div class="d-flex align-items-center border-top users-index col-4 col-lg-4">
         名前:
@@ -37,7 +37,7 @@
       </div>
       <div class="users-index mb-2 col-8">
         <% if user.customer_id.present? %>
-          <p><%= Plan.find(Subscription.find_by(user_id: n+1).plan_id).name %></p>
+          <p><%= Plan.find(Subscription.find_by(user_id: user.id).plan_id).name %></p>
         <% else %>
           <p>未登録</p>
         <% end %>  
@@ -45,8 +45,11 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="d-flex align-items-center border-top col-12">
-      <%= link_to "戻る", admins_index_path, class: "btn btn-secondary mt-3" %>
+    <div class="d-flex align-items-center border-top col-12 pagenate">
+      <%= paginate @users %>
     </div>  
   </div>
+  <%= link_to "戻る", admins_index_path, class: "btn btn-secondary mt-2" %>
 </div>
+
+

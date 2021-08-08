@@ -60,7 +60,7 @@
         <p class="mb-3"><%= l(@plan.created_at, format: :middle) %></p>
       </div>
     </div>
-    <%= link_to "戻る", admins_user_index_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", :back, class: "btn btn-secondary" %>
   </div>
   
 <% else %>
@@ -115,6 +115,6 @@
         <p class="mb-3">プラン未登録</p>
       </div>
     </div>
-    <%= link_to "戻る", admins_user_index_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", :back, class: "btn btn-secondary" %>
   </div>
 <% end %>  
