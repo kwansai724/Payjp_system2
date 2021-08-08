@@ -54,13 +54,13 @@
     </div>
     <div class="row">
       <div class="d-flex align-items-center border-bottom users-index mt-3 mb-3 col-4">
-        <p class="mb-3">開始日:</p>
+        <p class="mb-3">登録日:</p>
       </div>
       <div class="d-flex align-items-center border-bottom users-index mt-3 mb-3 col-8">
         <p class="mb-3"><%= l(@plan.created_at, format: :middle) %></p>
       </div>
     </div>
-    <%= link_to "戻る", admins_user_index_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", :back, class: "btn btn-secondary" %>
   </div>
   
 <% else %>
@@ -115,6 +115,6 @@
         <p class="mb-3">プラン未登録</p>
       </div>
     </div>
-    <%= link_to "戻る", admins_user_index_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", :back, class: "btn btn-secondary" %>
   </div>
 <% end %>  
