@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   has_many :cards
   has_one :subscription
+
+  scope :search, -> (search_params) do
+    return if search_params.blank?
+
+    name_like(search_params[:name])
+  end
+  scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+
 end

@@ -4,7 +4,8 @@ class Admins::PayjpController < Admins::Base
   end
 
   def user_index
-    @users = User.all.page(params[:page]).per(10)
+    @search_params = user_search_params
+    @users = User.search(@search_params).page(params[:page]).per(10)
   end
 
   def user_show
@@ -15,5 +16,11 @@ class Admins::PayjpController < Admins::Base
    else
       @user = User.find(params[:user_id])
     end
+  end
+
+  private
+
+  def user_search_params
+    params.fetch(:search, {}).permit(:name)
   end
 end

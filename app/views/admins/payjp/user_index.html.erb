@@ -1,7 +1,21 @@
 <%= render 'layouts/flash_messages' %>
 
+
 <div class="container mt-3 col-md-10 col-lg-8">
-  <h1>顧客一覧</h1>
+  
+
+  <form class="form-inline">
+    <h1>顧客一覧</h1>
+    <div class="search-form form-inline">
+      <%= form_with(scope: :search, url: admins_user_index_path, method: :get, local: true) do |f| %>
+        <div class="form-group mx-sm-1 mb-2">
+          <%= f.text_field :name, value: @search_params[:name], placeholder: "名前で検索", class: "form-control" %>
+        </div>
+        <%= f.submit t('helpers.submit.search'), class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+  </form>
+
   <% @users.each_with_index do |user| %>
     <div class="row">
       <div class="d-flex align-items-center border-top users-index col-4 col-lg-4">
@@ -49,7 +63,11 @@
       <%= paginate @users %>
     </div>  
   </div>
-  <%= link_to "戻る", admins_index_path, class: "btn btn-secondary mt-2" %>
+  <% if params[:search].present? %>
+    <%= link_to "一覧へ戻る", admins_user_index_path, class: "btn btn-secondary mt-2" %>
+  <% else %>
+    <%= link_to "戻る", admins_index_path, class: "btn btn-secondary mt-2" %>
+  <% end %>  
 </div>
 
 
