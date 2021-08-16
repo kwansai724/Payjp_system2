@@ -14,4 +14,10 @@ class User < ApplicationRecord
   end
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
+  validates :name, presence: true, length: { minimum: 2 }
+  validates :email, length: { maximum: 100 }
+  validates :gender, presence: true
+  validates :birthday, presence: true
+  validates :address, presence: true
+
 end
