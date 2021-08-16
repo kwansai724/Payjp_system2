@@ -6,6 +6,10 @@ FactoryBot.define do
     birthday "1989-07-24"
     address "大阪市"
     password "password"
-    password_confirmation "password"    
+    password_confirmation "password"
+
+    after(:create) do |user|
+      create_list(:card, 3, user: user)
+    end
   end
 end
