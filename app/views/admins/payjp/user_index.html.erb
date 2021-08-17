@@ -1,8 +1,6 @@
 <%= render 'layouts/flash_messages' %>
 
-
 <div class="container mt-3 col-md-10 col-lg-8">
-  
 
   <form class="form-inline">
     <h1>顧客一覧</h1>
@@ -50,7 +48,7 @@
         プラン:
       </div>
       <div class="users-index mb-2 col-8">
-        <% if user.customer_id.present? %>
+        <% if user.customer_id && Subscription.find_by(user_id: user.id) %>
           <p><%= Plan.find(Subscription.find_by(user_id: user.id).plan_id).name %></p>
         <% else %>
           <p>未登録</p>

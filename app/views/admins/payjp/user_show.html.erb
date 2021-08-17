@@ -1,7 +1,7 @@
 
 <%= render 'layouts/flash_messages' %>
 
-<% if params[:format].present? %>
+<% if Subscription.find_by(user_id: params[:user_id]).present? %>
   <div class="container mt-3 col-md-8 col-lg-6">
     <h1>顧客詳細</h1>
     <div class="row">
