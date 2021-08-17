@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_many :cards
-  has_one :subscription
+  has_many :cards, dependent: :destroy
+  has_one :subscription, dependent: :destroy
 
   scope :search, -> (search_params) do
     return if search_params.blank?
