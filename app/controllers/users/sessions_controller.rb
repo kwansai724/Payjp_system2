@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # ユーザーログイン後の画面遷移
   def after_sign_in_path_for(resource)
-    if current_user.customer_id
+    if Subscription.find_by(user_id: current_user.id).present?
       users_cards_path
     else
       users_plans_choice_path(resource)

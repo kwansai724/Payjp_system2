@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       get 'index', action: :index
       get 'user_index', action: :user_index
       get 'user_show', action: :user_show
+      delete 'user_index', action: :destroy
     end
   end
 
