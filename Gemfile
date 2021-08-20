@@ -32,7 +32,7 @@ gem 'kaminari'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec-rails', '~> 3.8.0'
   gem "factory_bot_rails", "~> 4.10.0"
 end
 
@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'launchy', '~> 2.4.3'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
