@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_08_07_035615) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_035615) do
     t.string "number", null: false
     t.string "brand", null: false
     t.boolean "default", default: false, null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_08_07_035615) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "subscription_id", null: false
-    t.integer "user_id", null: false
-    t.integer "plan_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "plan_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
@@ -75,4 +78,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_035615) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
+  add_foreign_key "subscriptions", "plans"
+  add_foreign_key "subscriptions", "users"
 end
