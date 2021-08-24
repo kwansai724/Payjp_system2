@@ -12,3 +12,5 @@ RUN gem install bundler
 RUN bundle install
 
 ADD . /payjp_system
+
+CMD ["rails", "server", "-b", "0.0.0.0"] 
