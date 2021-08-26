@@ -1,5 +1,17 @@
-<p><%= t('.greeting', recipient: @email) %></p>
+<%
+=begin%>
+ <p><%= t('.greeting', recipient: @email) %></p>
 
 <p><%= t('.instruction') %></p>
 
-<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token) %></p> 
+<%
+=end%>
+
+
+<p>ご登録ありがとうございます。</p>
+<p>登録されたメールアドレスは<%= @email %>です。</p>
+
+<p>下記リンクをクリックしてアカウント登録を完了させてください。</p>
+
+<p><%= link_to '「アカウント登録」', confirmation_url(@resource, confirmation_token: @token) %></p>

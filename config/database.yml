@@ -44,7 +44,7 @@ test:
 
 production:
   <<: *default
-  # database: app_production
+  # database: payjp_system_production
   # username: app
   # password: <%= ENV['APP_DATABASE_PASSWORD'] %>
   adapter: postgresql
