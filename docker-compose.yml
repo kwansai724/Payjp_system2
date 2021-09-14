@@ -21,6 +21,8 @@ services:
       - db # DB側のコンテナが出来上がってからwebを実行する
     ports:
       - "3000:3000" # ホストからゲストへポートフォワード
+    environment:
+      - 'DATABASE_PASSWORD=postgres'
     volumes:
       - .:/payjp_system2 # ソースコード変更したらDocker側も即反映されるように
 volumes:

@@ -43,9 +43,13 @@ test:
   database: payjp_system2_test
 
 production:
-  <<: *default
-  # database: payjp_system2_production
-  # username: app
-  # password: <%= ENV['APP_DATABASE_PASSWORD'] %>
-  adapter: postgresql
-  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+
+
+# production:
+#   <<: *default
+#   # database: payjp_system2_production
+#   # username: app
+#   # password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+#   adapter: postgresql
+#   encoding: unicode

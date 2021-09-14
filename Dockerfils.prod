@@ -11,6 +11,6 @@ ADD Gemfile.lock /payjp_system2/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
 
-# ADD . /payjp_system2
+COPY . .
 
-# CMD ["rails", "server", "-b", "0.0.0.0"] 
+CMD ["rails", "s"] 
