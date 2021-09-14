@@ -36,15 +36,15 @@ default: &default
 
 development:
   <<: *default
-  database: payjp_system_development
+  database: payjp_system2_development
 
 test:
   <<: *default
-  database: payjp_system_test
+  database: payjp_system2_test
 
 production:
   <<: *default
-  # database: payjp_system_production
+  # database: payjp_system2_production
   # username: app
   # password: <%= ENV['APP_DATABASE_PASSWORD'] %>
   adapter: postgresql

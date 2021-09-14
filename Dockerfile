@@ -3,14 +3,14 @@ RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -r
 RUN apt-get update && apt-get install -y postgresql-client --no-install-recommends && rm -rf /var/lib/apt/lists/*
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
-WORKDIR /payjp_system
+WORKDIR /payjp_system2
 
-ADD Gemfile /payjp_system/Gemfile
-ADD Gemfile.lock /payjp_system/Gemfile.lock
+ADD Gemfile /payjp_system2/Gemfile
+ADD Gemfile.lock /payjp_system2/Gemfile.lock
 
 RUN gem install bundler
 RUN bundle install
 
-ADD . /payjp_system
+ADD . /payjp_system2
 
 CMD ["rails", "server", "-b", "0.0.0.0"] 
